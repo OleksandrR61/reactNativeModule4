@@ -5,9 +5,10 @@ export const FormInput = ({
     keyboardType = 'default',
     value,
     secureTextEntry = false,
-    onChangeText
+    onChangeText,
+    style
 }) => <TextInput
-    style={styles.input}
+    style={{...styles.input, ...style}}
     placeholder={placeholder}
     placeholderTextColor='#BDBDBD'
     keyboardType={keyboardType}

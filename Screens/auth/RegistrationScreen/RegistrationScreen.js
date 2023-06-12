@@ -10,7 +10,7 @@ import {
     FormSecretInput,
     BtnPrime,
     BtnAdditional,
-} from "../../components";
+} from "../../../components";
 
 const INITIALSTATE = {
     LOGIN: '',

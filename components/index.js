@@ -6,6 +6,12 @@ import { FormInput } from "./FormInput/FormInput";
 import { FormSecretInput } from "./FormSecretInput/FormSecretInput";
 import { BtnPrime } from "./BtnPrime/BtnPrime";
 import { BtnAdditional } from "./BtnAdditional/BtnAdditional";
+import { PostsContainer } from "./PostsContainer/PostsContainer";
+import { PostsUser } from "./PostsUser/PostsUser";
+import { FormInputImg } from "./FormInputImg/FormInputImg";
+import { PostsList } from "./PostsList/PostsList";
+import { PostsListItem } from "./PostsListItem/PostsListItem";
+import { PostImage } from "./PostImage/PostImage";
 
 export {
     Container,
@@ -15,5 +21,11 @@ export {
     FormInput,
     FormSecretInput,
     BtnPrime,
-    BtnAdditional
+    BtnAdditional,
+    PostsContainer,
+    PostsUser,
+    FormInputImg,
+    PostsList,
+    PostsListItem,
+    PostImage,
 };

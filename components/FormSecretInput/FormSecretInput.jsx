@@ -18,7 +18,7 @@ export const FormSecretInput = ({placeholder, value, onChangeText}) => {
             style={styles.secureBtn}
             onPress={() => setIsSecure(prev => !prev)}
         >
-            Показати
+            {isSecure ? "Показати" : "Приховати"}
         </BtnAdditional>
     </View>;
 };

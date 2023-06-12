@@ -1,9 +1,10 @@
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 
-export const BtnPrime = ({children, onPress}) => <TouchableOpacity
-    style={styles.btn}
+export const BtnPrime = ({children, onPress, disabled = false, style}) => <TouchableOpacity
+    style={{...styles.btn, ...style}}
     activeOpacity={0.8}
     onPress={onPress}
+    disabled={disabled}
 >
     <Text style={styles.btnText}>{children}</Text>
 </TouchableOpacity>;

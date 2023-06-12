@@ -2,10 +2,8 @@ import { useState, useEffect } from 'react';
 
 import * as Font from 'expo-font';
 
-import LoginScreen from './Screens/LoginScreen/LoginScreen';
+import PostsScreen from './Screens/main/PostsScreen/PostsScreen';
 import { Container } from './components';
-
-
 
 export default function App() {
   const [isReady, setIsReady] = useState(false);
@@ -14,8 +12,9 @@ export default function App() {
     const loadFonts = async () => {
       try {
         await Font.loadAsync({
-          "Roboto-Medium": require("./assets/fonts/Roboto-Medium.ttf"),
-          "Roboto-Regular": require("./assets/fonts/Roboto-Regular.ttf"),
+          "Roboto-Medium": require("./assets/fonts/Roboto-Medium.ttf"), //500
+          "Roboto-Regular": require("./assets/fonts/Roboto-Regular.ttf"), //400
+          "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"), //700
         });
       } catch (error) {
         console.warn(error);
@@ -32,6 +31,6 @@ export default function App() {
   };
 
   return (
-    <LoginScreen />
+    <PostsScreen />
   );
 };
