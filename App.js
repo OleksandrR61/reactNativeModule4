@@ -15,6 +15,7 @@ export default function App() {
           "Roboto-Medium": require("./assets/fonts/Roboto-Medium.ttf"), //500
           "Roboto-Regular": require("./assets/fonts/Roboto-Regular.ttf"), //400
           "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"), //700
+          "Inter-Medium": require("./assets/fonts/Inter-Medium.ttf"), //500
         });
       } catch (error) {
         console.warn(error);
