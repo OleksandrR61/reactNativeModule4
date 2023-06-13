@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import * as Font from 'expo-font';
 
-import PostsScreen from './Screens/main/PostsScreen/PostsScreen';
+import CommentsScreen from './Screens/main/CommentsScreen/CommentsScreen';
 import { Container } from './components';
 
 export default function App() {
@@ -31,6 +31,6 @@ export default function App() {
   };
 
   return (
-    <PostsScreen />
+    <CommentsScreen />
   );
 };

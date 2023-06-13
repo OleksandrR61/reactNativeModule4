@@ -12,6 +12,8 @@ import { FormInputImg } from "./FormInputImg/FormInputImg";
 import { PostsList } from "./PostsList/PostsList";
 import { PostsListItem } from "./PostsListItem/PostsListItem";
 import { PostImage } from "./PostImage/PostImage";
+import { CommentsList } from "./CommentsList/CommentsList";
+import { CommentsListItem } from "./CommentsListItem/CommentsListItem";
 
 export {
     Container,
@@ -28,4 +30,6 @@ export {
     PostsList,
     PostsListItem,
     PostImage,
+    CommentsList,
+    CommentsListItem
 };
