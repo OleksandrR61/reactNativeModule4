@@ -1,9 +1,11 @@
 import { StyleSheet, View } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
-export const InnerContainer = ({children}) => <View style={styles.innerContainer}>
-    <KeyboardAwareScrollView keyboardShouldPersistTaps='handled'>
-        {children}
+export const InnerContainer = ({children, style}) =><View> 
+    <KeyboardAwareScrollView keyboardShouldPersistTaps='handled' contentContainerStyle={style}>
+        <View style={styles.innerContainer}>
+            {children}
+        </View>
     </KeyboardAwareScrollView>
 </View>;
 

@@ -10,6 +10,7 @@ import {
     FormSecretInput,
     BtnPrime,
     BtnAdditional,
+    ProfileAvatar,
 } from "../../../components";
 
 const INITIALSTATE = {
@@ -33,7 +34,8 @@ const RegistrationScreen = () => {
 
     return (
         <Container>
-            <InnerContainer>
+            <InnerContainer style={{paddingTop: 60}}>
+                <ProfileAvatar source={require('../../../assets/img/userExample.jpg')} />
                 <PageHeader>Реєстрація</PageHeader>
                 <Form>
                     <FormInput

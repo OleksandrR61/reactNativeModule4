@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react';
 
 import * as Font from 'expo-font';
 
-import CommentsScreen from './Screens/main/CommentsScreen/CommentsScreen';
+import ProfileScreen from './Screens/main/ProfileScreen/ProfileScreen';
 import { Container } from './components';
+import userExample from './example/userExample';
 
 export default function App() {
   const [isReady, setIsReady] = useState(false);
+  const [ user, setUser ] = useState(userExample)
 
   useEffect(() => {
     const loadFonts = async () => {
@@ -28,10 +30,10 @@ export default function App() {
   }, [setIsReady]);
   
   if (!isReady) {
-    return <Container />;
+    return <Container/>;
   };
 
   return (
-    <CommentsScreen />
+    <ProfileScreen user={user}/>
   );
 };

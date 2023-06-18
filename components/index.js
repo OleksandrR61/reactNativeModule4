@@ -14,6 +14,8 @@ import { PostsListItem } from "./PostsListItem/PostsListItem";
 import { PostImage } from "./PostImage/PostImage";
 import { CommentsList } from "./CommentsList/CommentsList";
 import { CommentsListItem } from "./CommentsListItem/CommentsListItem";
+import { ProfileAvatar } from "./ProfileAvatar/ProfileAvatar";
+import { BtnAdditionalImg } from "./BtnAdditionalImg/BtnAdditionalImg";
 
 export {
     Container,
@@ -31,5 +33,7 @@ export {
     PostsListItem,
     PostImage,
     CommentsList,
-    CommentsListItem
+    CommentsListItem,
+    ProfileAvatar,
+    BtnAdditionalImg,
 };

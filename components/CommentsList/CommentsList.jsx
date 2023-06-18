@@ -4,7 +4,7 @@ import { CommentsListItem } from "../CommentsListItem/CommentsListItem";
 
 export const CommentsList = ({comments}) => <ScrollView style={styles.container}>
     {comments.map((comment, index) => <CommentsListItem
-        key={comment.text.slice(0, 16) + new Date()}
+        key={comment.id}
         comment={comment}
         isOdd={index % 2 === 0}
     />)}
