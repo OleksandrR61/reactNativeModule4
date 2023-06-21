@@ -2,28 +2,10 @@ import { useState } from "react";
 import { View, TouchableOpacity, Keyboard, ImageBackground } from "react-native";
 import { PostsContainer, PostImage, CommentsList, FormInput } from "../../../components/";
 
-const exampleComments = [
-    {
-        author: require('../../../assets/img/exampleAvatar.jpg'),
-        text: "Really love your most recent photo. I’ve been trying to capture the same thing for a few months and would love some tips!",
-        date: "09 червня, 2020 | 08:40",
-    },
-    {
-        author: require('../../../assets/img/userExample.jpg'),
-        text: "A fast 50mm like f1.8 would help with the bokeh. I’ve been using primes as they tend to get a bit sharper images.",
-        date: "09 червня, 2020 | 09:14",
-    },
-    {
-        author: require('../../../assets/img/exampleAvatar.jpg'),
-        text: "Thank you! That was very helpful!",
-        date: "09 червня, 2020 | 09:20",
-    },
-];
-
 const months = ["січня", "лютого", "березня", "квітня", "травня", "червня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"];
 
-const CommentsScreen = () => {
-    const [ comments, setComments ] = useState(exampleComments);
+const CommentsScreen = ({route}) => {
+    const [ comments, setComments ] = useState(route.params.comments);
     const [ text, setText ] = useState("");
     
     const handlePress = () => {
@@ -31,6 +13,7 @@ const CommentsScreen = () => {
             const dateNow = new Date();
             
             setComments(comments => [...comments, {
+                id: comments.length,
                 author: require('../../../assets/img/userExample.jpg'),
                 text,
                 date: `${dateNow.getDate() + 1} ${months[dateNow.getMonth()]}, ${dateNow.getFullYear()} | ${dateNow.getHours()}:${dateNow.getMinutes() < 10 ? "0" + dateNow.getMinutes() : dateNow.getMinutes()}`
@@ -43,7 +26,7 @@ const CommentsScreen = () => {
 
     return <PostsContainer>
         <PostImage
-            source={require('../../../assets/img/postImgExample2.jpg')}
+            source={route.params.img}
         />
         <CommentsList comments={comments} />
         <View style={{position: "relative"}}>
@@ -51,6 +34,7 @@ const CommentsScreen = () => {
                 placeholder={"Коментувати..."}
                 value={text}
                 onChangeText={setText}
+                onEndEditing={handlePress}
                 style={{
                     borderRadius: 100,
                     fontFamily: "Inter-Medium",

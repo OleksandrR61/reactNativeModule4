@@ -6,6 +6,7 @@ export const FormInput = ({
     value,
     secureTextEntry = false,
     onChangeText,
+    onEndEditing,
     style
 }) => <TextInput
     style={{...styles.input, ...style}}
@@ -15,6 +16,7 @@ export const FormInput = ({
     value={value}
     secureTextEntry={secureTextEntry}
     onChangeText={onChangeText}
+    onEndEditing={onEndEditing}
 />;
 
 const styles = StyleSheet.create({

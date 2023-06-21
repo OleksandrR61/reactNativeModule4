@@ -1,5 +1,6 @@
 export default userExample = {
     name: "Natali Romanova",
+    email: "email@example.com",
     avatar: require('../assets/img/userExample.jpg'),
     posts: [
         {

@@ -1,13 +1,13 @@
 import { View, StyleSheet, ImageBackground, Text } from "react-native";
 
-export const PostsUser = () => <View style={styles.container}>
+export const PostsUser = ({ user: {avatar, name, email} }) => <View style={styles.container}>
     <ImageBackground
-            source={require('../../assets/img/userExample.jpg')}
+            source={avatar}
             style={styles.imageBG}
     />
     <View style={styles.title}>
-        <Text style={styles.titleName}>Natali Romanova</Text>
-        <Text style={styles.titleEmail}>email@example.com</Text>
+        <Text style={styles.titleName}>{name}</Text>
+        <Text style={styles.titleEmail}>{email}</Text>
     </View>
 </View>;
 

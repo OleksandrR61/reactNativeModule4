@@ -16,6 +16,7 @@ import { CommentsList } from "./CommentsList/CommentsList";
 import { CommentsListItem } from "./CommentsListItem/CommentsListItem";
 import { ProfileAvatar } from "./ProfileAvatar/ProfileAvatar";
 import { BtnAdditionalImg } from "./BtnAdditionalImg/BtnAdditionalImg";
+import { Header } from "./Header/Header";
 
 export {
     Container,
@@ -36,4 +37,5 @@ export {
     CommentsListItem,
     ProfileAvatar,
     BtnAdditionalImg,
+    Header,
 };

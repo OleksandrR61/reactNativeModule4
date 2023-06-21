@@ -1,16 +1,25 @@
 import { View, StyleSheet, Image, Text } from "react-native";
 
 import { PostImage } from "../PostImage/PostImage";
+import { BtnAdditionalImg } from "../BtnAdditionalImg/BtnAdditionalImg";
 
-export const PostsListItem = ({post, screen}) => <View style={styles.container}>
+export const PostsListItem = ({post, screen, navigation}) => <View style={styles.container}>
     <PostImage source={post.img} />
     <Text style={styles.title}>{post.title}</Text>
     <View style={styles.details}>
         <View style={styles.comment}>
-            <Image
+            <BtnAdditionalImg
                 source={screen === "profile"
                     ? require('../../assets/img/shape.png')
-                    : require('../../assets/img/message.png')} style={styles.commentImg}/>
+                    : require('../../assets/img/message.png')
+                }
+                styleBtn={{position: "relative"}}
+                styleImg={styles.commentImg}
+                onPress={() => navigation.navigate("CommentsScreen", {
+                    img: post.img,
+                    comments: post.comments,
+                })}
+            />
             <Text style={{
                 ...styles.commentCount,
                 color: screen === "profile" ? "#212121" : "#BDBDBD"
@@ -61,7 +70,6 @@ const styles = StyleSheet.create({
     commentImg: {
         height: 18,
         width: 18,
-        marginRight: 9,
         resizeMode: "contain",
     },
     commentCount: {
@@ -69,6 +77,7 @@ const styles = StyleSheet.create({
         fontWeight: 400,
         fontSize: 16,
         lineHeight: 19,
+        marginLeft: 9,        
     },
     location: {
         fontFamily: "Roboto-Regular",

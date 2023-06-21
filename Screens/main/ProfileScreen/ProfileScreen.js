@@ -1,7 +1,10 @@
 import { Container, InnerContainer, PageHeader, ProfileAvatar, BtnAdditionalImg, PostsList } from "../../../components";
 import { TouchableOpacity, Image } from 'react-native'
 
-const ProfileScreen = ({user}) => {return <Container>
+const ProfileScreen = ({route, navigation}) => {
+    const { user } = route.params;
+    
+    return <Container>
     <InnerContainer style={{
         paddingTop: 127,
     }}>
@@ -27,6 +30,7 @@ const ProfileScreen = ({user}) => {return <Container>
         <PostsList
             posts={user.posts}
             screen={"profile"}
+            navigation={navigation}
         />
     </InnerContainer>
 </Container>

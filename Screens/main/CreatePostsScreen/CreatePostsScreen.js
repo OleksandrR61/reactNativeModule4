@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
+import { useState, useEffect } from "react";
+import { StyleSheet, View, Image, Text, TouchableOpacity, Keyboard } from "react-native";
 
 import { PostsContainer, Form, FormInputImg, FormInput, BtnPrime } from "../../../components";
 
@@ -7,6 +7,21 @@ const CreatePostsScreen = () => {
     const [ foto, setFoto ] = useState(null);
     const [ title, setTitle ] = useState("");
     const [ location, setLocation ] = useState("");
+    const [ isTrashBtnVisible, setIsTrashBtnVisible ] = useState(true);
+
+    useEffect(() => {
+        const hideTrashBtn = Keyboard.addListener('keyboardDidShow', () => {
+          setIsTrashBtnVisible(false);
+        });
+        const showTrashBtn = Keyboard.addListener('keyboardDidHide', () => {
+          setIsTrashBtnVisible(true);
+        });
+    
+        return () => {
+          showTrashBtn.remove();
+          hideTrashBtn.remove();
+        };
+    }, []);
 
     const handleSubmit = () => {
         console.log("Create post");
@@ -20,7 +35,7 @@ const CreatePostsScreen = () => {
 
     const isBtnDisabled = !foto || !title || !location;
 
-    return (<PostsContainer>
+    return (<><PostsContainer>
         <Form style={{paddingHorizontal: 0, paddingBottom: 0,}}>
             <FormInputImg value={foto} setValue={setFoto} />
             <FormInput
@@ -45,10 +60,10 @@ const CreatePostsScreen = () => {
                 <Text style={isBtnDisabled && styles.textBtnDisabled}>Опубліковати</Text>
             </BtnPrime>
         </Form>
-        <TouchableOpacity style={styles.trashBtn} activeOpacity={0.8} onPress={handleReset}>
-            <Image source={require('../../../assets/img/trash.png')} style={styles.trashBtnImg} />
-        </TouchableOpacity>
-    </PostsContainer>);
+    </PostsContainer>
+    {isTrashBtnVisible && <TouchableOpacity style={styles.trashBtn} activeOpacity={0.8} onPress={handleReset}>
+        <Image source={require('../../../assets/img/trash.png')} style={styles.trashBtnImg} />
+    </TouchableOpacity>}</>);
 };
 
 export default CreatePostsScreen;
@@ -84,7 +99,6 @@ const styles = StyleSheet.create({
         color: "#BDBDBD",
     },
     trashBtn: {
-        flex: 1,
         justifyContent: "center",
         alignItems: "center",
         alignSelf: "center",
@@ -92,6 +106,7 @@ const styles = StyleSheet.create({
         width: 70,
         backgroundColor: "#F6F6F6",
         borderRadius: 20,
+        marginBottom: 34,
     },
     trashBtnImg: {
         height: 24,

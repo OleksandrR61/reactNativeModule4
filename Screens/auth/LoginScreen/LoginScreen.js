@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Keyboard } from "react-native";
+import { Keyboard, View, Text } from "react-native";
 
 import {
     Container,
@@ -17,7 +17,7 @@ const INITIALSTATE = {
     PASSWORD: '',
 };
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation, route}) => {
     const [ email, setEmail ] = useState(INITIALSTATE.EMAIL);
     const [ password, setPassword ] = useState(INITIALSTATE.PASSWORD);
 
@@ -26,6 +26,7 @@ const LoginScreen = () => {
         setEmail(INITIALSTATE.EMAIL);
         setPassword(INITIALSTATE.PASSWORD);
         Keyboard.dismiss();
+        route.params.handleSubmit();
     };
 
     return (
@@ -45,9 +46,27 @@ const LoginScreen = () => {
                         onChangeText={value => setPassword(value)}
                     />
                     <BtnPrime onPress={handleSubmit}>Увійти</BtnPrime>
-                    <BtnAdditional style={{marginTop: 16, alignSelf: 'center'}}>
-                        Немає акаунту? Зареєструватися
-                    </BtnAdditional>
+                    <View style={{
+                        marginTop: 16,
+                        flex: 1,
+                        flexDirection: "row",
+                        alignSelf: 'center',
+                    }}>
+                        <Text  style={{
+                            fontFamily: "Roboto-Regular",
+                            fontSize: 16,
+                            lineHeight: 19,
+                            color: '#1B4371'                            
+                        }}>
+                            Немає акаунту?{" "}
+                        </Text>
+                        <BtnAdditional
+                            styleText={{textDecorationLine: "underline"}}
+                            onPress={() => navigation.navigate("RegistrationScreen")}
+                        >
+                            Зареєструватися
+                        </BtnAdditional>
+                    </View>
                 </Form>
             </InnerContainer>
         </Container>

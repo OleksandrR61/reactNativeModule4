@@ -1,8 +1,10 @@
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 
-export const BtnAdditional = ({style = {}, children, onPress}) => <TouchableOpacity style={{...style}}>
-    <Text style={styles.btnText} onPress={onPress}>{children}</Text>
-</TouchableOpacity>;
+export const BtnAdditional = ({style = {}, styleText = {}, children, onPress}) =>
+    <TouchableOpacity style={{...style}} onPress={onPress}>
+        <Text style={{...styles.btnText, ...styleText}}>{children}</Text>
+    </TouchableOpacity>
+;
 
 const styles = StyleSheet.create({
     btnText: {
